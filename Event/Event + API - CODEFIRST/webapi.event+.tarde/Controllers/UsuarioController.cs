@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.event_.manha.Repositories;
+using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
 using webapi.event_.tarde.Repositories;
@@ -19,6 +20,8 @@ namespace webapi.event_.tarde.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        // Funcionando
+
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -34,5 +37,22 @@ namespace webapi.event_.tarde.Controllers
                 throw;
             }
         }
+
+        // Funcionando
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                return Ok(_usuarioRepository.BuscarPorId(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        // Falta buscar por email e senha
     }
 }

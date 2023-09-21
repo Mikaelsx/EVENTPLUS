@@ -49,6 +49,7 @@ namespace webapi.event_.manha.Repositories
             }
         }
 
+        // Funcionando
         public Usuario BuscarPorId(Guid id)
         {
             try
@@ -79,6 +80,7 @@ namespace webapi.event_.manha.Repositories
             }
         }
 
+        // Funcionando
         public void Cadastrar(Usuario usuario)
         {
             try
@@ -94,5 +96,6 @@ namespace webapi.event_.manha.Repositories
                 throw;
             }
         }
+
     }
 }
